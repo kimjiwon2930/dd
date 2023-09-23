@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from "./logo.svg";
+import { useState } from "react";
+import "./App.css";
+
+import Shopping from "./pages";
+import { Themecontext } from "./context/Themecontext";
+// import { ThemeContext } from "styled-components";
 
 function App() {
+  const [isdark, setisdark] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Themecontext.Provider value={{ isdark, setisdark }}>
+      <Shopping />
+    </Themecontext.Provider>
   );
 }
 
